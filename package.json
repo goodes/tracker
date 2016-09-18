@@ -1,0 +1,30 @@
+{
+  "name": "tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "hot": "cd client && webpack --watch",
+    "start": "cd client && webpack && hz serve --dev --connect localhost:28015 --secure no"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-polyfill": "^6.13.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "webpack": "^1.13.2"
+  },
+  "dependencies": {
+    "@horizon/client": "^2.0.0",
+    "react": "^15.3.1",
+    "react-addons-shallow-compare": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-router": "^2.8.0",
+    "semantic-react": "^0.8.5"
+  }
+}

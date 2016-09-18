@@ -1,0 +1,10 @@
+rethinkdb_data
+**/*.log
+tracker/.hz/secrets.toml
+node_modules/
+data/
+.venv/
+client/dist/js/bundle.*
+client/config/tls/*.pem
+
+
