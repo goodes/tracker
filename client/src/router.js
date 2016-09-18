@@ -7,6 +7,7 @@ import PageLayout from './components/page-layout';
 // Pages
 import Main from './components/main';
 import EditItem from './components/edit-item-container';
+import Sizes from './components/sizes';
 
 export default (
   <Router history={hashHistory}>
@@ -14,6 +15,7 @@ export default (
       <IndexRoute component={Main} />
       <Route path="edit/:id" component={EditItem} />
       <Route path="new" component={EditItem} />
+      <Route path="sizes" component={Sizes} />
     </Route>
   </Router>
 );
