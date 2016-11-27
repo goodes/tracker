@@ -6,5 +6,4 @@ data/
 .venv/
 client/dist/js/bundle.*
 client/config/tls/*.pem
-
-
+logs/*

@@ -1,0 +1,3 @@
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd -P "$( dirname "$SOURCE" )" && pwd )"
+echo $(date) >> "${DIR}/logs/update"
+/Users/goodes/virtualenvs/tracker/bin/python "${DIR}/scripts/update.py" | tee -a "${DIR}/logs/update"

@@ -2,3 +2,4 @@ rethinkdb==2.3.0.post6
 beeprint==2.4.5
 ipython==5.1.0
 requests==2.11.1
+pytz==2016.7

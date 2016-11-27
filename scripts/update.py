@@ -12,8 +12,18 @@ import requests
 POSTIL_URL = "http://www.israelpost.co.il/itemtrace.nsf/trackandtraceJSON?OpenAgent&lang=EN&itemcode={}"
 IL_TZ = pytz.timezone('Israel')
 
+def setup():
+	r.connect('rtdb.goodes.net', 28015).repl()
+	db = r.db('tracker')
+
+	try:
+		if 'log' not in db.table_list().run():
+			db.table_create('log').run()
+	except Exception as ex:
+		print str(ex)
+
 def update():
-	r.connect('localhost', 28015).repl()
+	r.connect('rtdb.goodes.net', 28015).repl()
 	db = r.db('tracker')
 	res = db.table('items')
 	for item in res.filter({'state': 'open'}).run():
@@ -40,7 +50,8 @@ def log(db, item_id, last_ts, current_ts, was, now):
 		'last_ts': last_ts,
 		'current_ts': current_ts,
 		'was': was,
-		'now': now
+		'now': now,
+                'seen': False,
 	}
 	pp(entry)
 	db.table('log').insert(entry).run()
@@ -57,6 +68,7 @@ def get_status(tracking_id):
 			return "GOOD", data['itemcodeinfo'].split('<br>')[0]
 	except:
 		return "BAD", url
-	
+
 if __name__ == "__main__":
+	setup()
 	update()

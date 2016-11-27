@@ -45,19 +45,19 @@ export default class Packages extends Component {
     	})
         return (
       		<div>
-      		
-        	<Table compact><thead>
-        		<Tr>
-	        		<th>Tracking ID</th>
-	        		<th>Updated</th>
-	        		<th>Image</th>
-	        		<th>Status</th>
-	        		<th>State</th>
-	        		<th>Vendor</th>
-	        		<th>&nbsp;</th>
-        		</Tr>
-        	</thead><tbody>
-        	{packagesMapped}
+
+						<Table compact><thead>
+							<Tr>
+								<th>Tracking ID</th>
+								<th>Updated</th>
+								<th>Image</th>
+								<th>Status</th>
+								<th>State</th>
+								<th>Vendor</th>
+								<th>&nbsp;</th>
+							</Tr>
+						</thead><tbody>
+							{packagesMapped}
         	</tbody></Table>
         	</div>
         );

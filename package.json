@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "hot": "cd client && webpack --watch",
-    "start": "cd client && webpack && hz serve --dev --connect localhost:28015 --secure no"
+    "hz": "cd client && hz serve --dev --connect rtdb.goodes.net:28015 --secure no",
+    "start": "cd client && webpack && hz serve --dev --connect rtdb.goodes.net:28015 --secure no"
   },
   "keywords": [],
   "author": "",
