@@ -1,0 +1,9 @@
+horizon:
+  image: rethinkdb/horizon
+  command: su -s /bin/sh horizon -c "hz serve --dev --connect rtdb.goodes.net:28015 --bind all /usr/app"
+  environment:
+    - HZ_SECURE=no
+  volumes:
+    - ./:/usr/app
+  ports:
+    - "8182:8181"

@@ -7,3 +7,4 @@ data/
 client/dist/js/bundle.*
 client/config/tls/*.pem
 logs/*
+*.pyc
