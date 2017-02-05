@@ -2,13 +2,14 @@ import logging
 import simplejson
 import requests
 import os
-url = 'https://hooks.slack.com/services/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'
 logging.captureWarnings(True)
 
 url = os.getenv('SLACK_URL')
 def post(text, **kwargs):
     if url is None:
         print "No slack URL"
+        return
+
     data = {
         'username': 'tracker',
         'text': text + "   @daniel",

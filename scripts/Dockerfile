@@ -8,12 +8,16 @@ WORKDIR /app
 
 
 RUN apt-get -q update && apt-get -q install --no-install-recommends -y \
-  python \
   python2.7 \
-  python-pip
+  python-pip \
+  python-dev \
+  gcc
 
+RUN pip install -U pip
 
-COPY *.py *.txt /app/
+COPY requirements.txt /app/
+RUN pip install -r requirements.txt
 
-RUN chmod 755 *.py
-RUN pip install   -r requirements.txt
+VOLUME [ "/app" ]
+
+CMD ["/app/start"]
