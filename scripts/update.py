@@ -73,18 +73,22 @@ def get_status(tracking_id):
 		resp = requests.get(url)
 		resp.raise_for_status()
 		data = resp.json()
-                # print "\n" + "-"*80 + "\n" + tracking_id
-                # print json.dumps(data, indent=3, sort_keys=True)
-		if data['data_type'].startswith('ERROR'):
-			return "ERROR", data['itemcodeinfo'].split('<br>')[0]
-		else:
-                    if data['itemcodeinfo'].startswith('<table'):
-                        soup = BeautifulSoup(data['itemcodeinfo'], 'html.parser')
-                        return "GOOD", soup.find_all('tr')[1].find_all('td')[-1].text
-                    else:
-                        return "GOOD", data['itemcodeinfo'].split('<br>')[0]
+		return process_response(data)
 	except:
 		return "BAD", url
+
+def process_response(data):
+    # print "\n" + "-"*80 + "\n" + tracking_id
+    # print json.dumps(data, indent=3, sort_keys=True)
+	if data['data_type'].startswith('ERROR'):
+		return "ERROR", data['itemcodeinfo'].split('<br>')[0]
+	else:
+                if data['itemcodeinfo'].startswith('<table'):
+                    soup = BeautifulSoup(data['itemcodeinfo'], 'html.parser')
+                    return "GOOD", soup.find_all('tr')[1].find_all('td')[-1].text
+                else:
+                    return "GOOD", data['itemcodeinfo'].split('<br>')[0]
+
 
 if __name__ == "__main__":
 	setup()
